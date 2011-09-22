@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jasmine Test Runner</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="lib/jasmine/jasmine.css">
+    <script type="text/javascript" src="lib/jasmine/jasmine.js"></script>
+    <script type="text/javascript" src="lib/jasmine/jasmine-html.js"></script>
+
+    <!-- include lib files here... -->
+    <script type="text/javascript" src="lib/extjs/ext-debug.js"></script>
+
+    <!-- include spec files here... -->
+    <script type="text/javascript" src="specs/appSpec.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      Ext.application({
+        name: 'AM',
+        appFolder: 'app',
+        controllers: [
+          'Users'
+        ],
+        launch: function() { 
+          // do nothing
+        }
+      });
+      Ext.onReady(function() {
+        jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+        jasmine.getEnv().execute();
+      });
+    </script>
+  </body>
+</html>
